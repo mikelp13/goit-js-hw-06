@@ -51,16 +51,9 @@ console.log(getUsersWithAge(users, 30, 40));
 // [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
 
 //task-07
-// const calculateTotalBalance = users => {
-//    const a = users.reduce((totalBalance, balance) => totalBalance + balance, 0);
-//    return a;
-//    console.log(a);
+const calculateTotalBalance = users => { 
+   return  users.reduce((totalBalance, user) => totalBalance + user.balance, 0);
+};
+console.log(calculateTotalBalance(users)); // 20916
 
-// };
-
-// console.log(calculateTotalBalance(users)); // 20916
-
-const calculateTotalBalance = users.reduce((totalBalance, balance) => totalBalance + balance, 0)
-  
-
-console.log(calculateTotalBalance); // 20916
+//task-08

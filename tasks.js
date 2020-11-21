@@ -1,5 +1,5 @@
 import users from './users.js';
-/*
+
 //task-01
 
 const getUserNames = users => {
@@ -26,6 +26,7 @@ console.log(getUsersWithGender(users, 'male')); // [ 'Moore Hensley', 'Ross Vazq
 
 
 //task-04
+
 const getInactiveUsers = users => {
  return users.filter(user => !user.isActive)
 };
@@ -33,6 +34,7 @@ const getInactiveUsers = users => {
 console.log(getInactiveUsers(users)); // [объект Moore Hensley, объект Ross Vazquez, объект Blackburn Dotson]
 
 //task-05
+
 const getUserWithEmail = (users, email) => {
   return users.find(user => user.email === email)
 };
@@ -41,6 +43,7 @@ console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {объект 
 console.log(getUserWithEmail(users, 'elmahead@omatom.com')); // {объект пользователя Elma Head}
 
 //task-06
+
 const getUsersWithAge = (users, min, max) => {
  return users.filter(user => user.age > min && user.age < max );
 };
@@ -51,38 +54,56 @@ console.log(getUsersWithAge(users, 30, 40));
 // [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
 
 //task-07
+
 const calculateTotalBalance = users => { 
    return  users.reduce((totalBalance, user) => totalBalance + user.balance, 0);
 };
 console.log(calculateTotalBalance(users)); // 20916
-*/
+
 //task-08
 
-// const getUsersWithFriend = (users, friendName) => {
-//  const friendsArray = users.reduce((names, user) => { 
-//        user.friends.forEach(friend =>{
-//         if(friend === friendName){
-//           names.push(user.name);
-//             }
-//        });
-//        return names; 
-//  }, []);
+const getUsersWithFriend = (users, friendName) => {
+ const friendsArray = users.reduce((names, user) => {
+       user.friends.forEach(friend =>{
+        if(friend === friendName){
+          names.push(user.name);
+            }
+       });
+       return names;
+ }, []);
 
-// return friendsArray;
+return friendsArray;
 
-// };
+};
 
-//  console.log(getUsersWithFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
-//  console.log(getUsersWithFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
+console.log(getUsersWithFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
+console.log(getUsersWithFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
 
 //task-09
 
 const getNamesSortedByFriendsCount = users => {
   const usersCopy = [...users];
   usersCopy.sort((a, b) => a.friends.length - b.friends.length);
-  
+
  return usersCopy.map(user => user.name);
 };
 
 console.log(getNamesSortedByFriendsCount(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
+
+//task-10
+
+const getSortedUniqueSkills = users => {
+  const uniqueSkills = users.reduce((skills, user) => {
+    user.skills.forEach(skill => {
+      if (skills.indexOf(skill) === -1) {
+        skills.push(skill);
+      }
+    });
+    return skills;
+  }, []);
+  return uniqueSkills.sort();
+};
+
+console.log(getSortedUniqueSkills(users));
+// [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]

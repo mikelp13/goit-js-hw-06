@@ -41,3 +41,26 @@ console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {объект 
 console.log(getUserWithEmail(users, 'elmahead@omatom.com')); // {объект пользователя Elma Head}
 
 //task-06
+const getUsersWithAge = (users, min, max) => {
+ return users.filter(user => user.age > min && user.age < max );
+};
+
+console.log(getUsersWithAge(users, 20, 30)); // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
+
+console.log(getUsersWithAge(users, 30, 40));
+// [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
+
+//task-07
+// const calculateTotalBalance = users => {
+//    const a = users.reduce((totalBalance, balance) => totalBalance + balance, 0);
+//    return a;
+//    console.log(a);
+
+// };
+
+// console.log(calculateTotalBalance(users)); // 20916
+
+const calculateTotalBalance = users.reduce((totalBalance, balance) => totalBalance + balance, 0)
+  
+
+console.log(calculateTotalBalance); // 20916

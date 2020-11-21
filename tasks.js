@@ -1,5 +1,5 @@
 import users from './users.js';
-
+/*
 //task-01
 
 const getUserNames = users => {
@@ -55,5 +55,24 @@ const calculateTotalBalance = users => {
    return  users.reduce((totalBalance, user) => totalBalance + user.balance, 0);
 };
 console.log(calculateTotalBalance(users)); // 20916
-
+*/
 //task-08
+
+const getUsersWithFriend = (users, friendName) => {
+ const friendsArray = users.reduce((names, user) => { 
+       user.friends.forEach(friend =>{
+        if(friend === friendName){
+          names.push(user.name);
+            }
+       });
+       return names; 
+ }, []);
+
+return friendsArray;
+
+};
+
+ console.log(getUsersWithFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
+ console.log(getUsersWithFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
+
+//task-09
